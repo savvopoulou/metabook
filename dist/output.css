@@ -829,6 +829,17 @@ video {
   border-radius: 8px;
 }
 
+.footer-box {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  width: 1198px;
+  height: 250px;
+  background-color: #F9F9F9;
+  border-color: #D9D9D6;
+  border-radius: 8px;
+}
+
 .main {
   padding-top: 80px;
   display: flex;
@@ -865,6 +876,21 @@ video {
   font-weight: 500;
   text-decoration: underline;
   padding-bottom: 1px;
+  text-underline-offset: 0.5em;
+  color: #63666A;
+}
+
+.footer-text-bold {
+  padding-top: 68px;
+}
+
+.footer-text-light {
+  padding-left: 267px;
+  padding-right: 267px;
+}
+
+.underline-footer {
+  text-decoration: underline;
   text-underline-offset: 0.5em;
   color: #63666A;
 }
