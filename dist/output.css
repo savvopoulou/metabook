@@ -805,4 +805,67 @@ video {
   color: #63666A;
 }
 
+.meta-gray-700 {
+  color: #4C5053;
+}
+
+.main-boxes-2 {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  width: 578px;
+  height: 300px;
+  border-color: #D9D9D6;
+  border-radius: 8px;
+}
+
+.main-boxes-3 {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  width: 370px;
+  height: 300px;
+  border-color: #D9D9D6;
+  border-radius: 8px;
+}
+
+.main {
+  padding-top: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icon {
+  padding-top: 45px;
+  padding-bottom: 31px;
+}
+
+.main-text-bold {
+  font-size: 24px;
+  line-height: 36px;
+  font-weight: 500;
+  color: #4C5053;
+}
+
+.main-text-light {
+  font-size: 16px ;
+  line-height: 24px;
+  font-weight: 400;
+  padding-top: 8px;
+  padding-left: 110px;
+  padding-right: 110px;
+  padding-bottom: 13px;
+  color: #4C5053;
+}
+
+.main-text-bottom {
+  font-size: 14px;
+  line-height: 19.5px;
+  font-weight: 500;
+  text-decoration: underline;
+  padding-bottom: 1px;
+  text-underline-offset: 0.5em;
+  color: #63666A;
+}
 
