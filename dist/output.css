@@ -560,9 +560,17 @@ video {
   top: 0px;
 }
 
+.z-10 {
+  z-index: 10;
+}
+
 .mx-5 {
   margin-left: 1.25rem; 
   margin-right: 1.25rem; 
+}
+
+.m-0 {
+  margin: 0px;
 }
 
 .m-11{
@@ -584,6 +592,10 @@ video {
 
 .flex {
   display: flex;
+}
+
+.inline-block {
+  display: inline-block;
 }
 
 .h-2 {
@@ -626,6 +638,10 @@ video {
   height: 24rem; /* 384px */
 }
 
+.w-11 {
+  width: 2.75rem; /* 44px */
+}
+
 .w-44 {
   width: 11rem;
 }
@@ -646,12 +662,20 @@ video {
   width: 100%;
 }
 
+.h-screen {
+  height: 100vh;
+}
+
 .w-4 {
   width: 1rem;
 }
 
 .w-1\/2 {
   width: 50%;
+}
+
+.w-screen {
+  width: 100vw;
 }
 
 .flex-none {
@@ -715,6 +739,10 @@ video {
   border-color: rgb(107 114 128);
 }
 
+.bg-transparent {
+  background-color: transparent;
+}
+
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -730,6 +758,9 @@ video {
 
 .fill-current {
   fill: currentColor;
+}
+.p-0 {
+  padding: 0px;
 }
 
 .p-11 {
@@ -771,12 +802,24 @@ padding-right: 24rem; /* 384px */
   padding-right: 1.25rem;
 }
 
+.pl-5 {
+  padding-left: 1.25rem; /* 20px */
+}
+
 .pl-24 {
   padding-left: 6rem; /* 96px */
 }
 
 .pl-28 {
   padding-left: 7rem;
+}
+
+.pt-4 {
+  padding-top: 1rem; /* 16px */
+}
+
+.pt-5 {
+  padding-top: 1.25rem; /* 20px */
 }
 
 .pt-8 {
@@ -903,6 +946,9 @@ padding-right: 24rem; /* 384px */
   --tw-text-opacity: 1;
   color: rgb(76 80 83 / var(--tw-text-opacity));
 }
+.text-gray-400 {
+  color: rgb(156 163 175);
+}
 
 .text-gray-500 {
   color: rgb(107 114 128);
@@ -930,6 +976,14 @@ padding-right: 24rem; /* 384px */
   outline-offset: 2px;
 }
 
+.outline-0 {
+  outline-width: 0px;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
 .hr {
   width: 1440px;
 }
@@ -951,6 +1005,52 @@ padding-right: 24rem; /* 384px */
   color: #4C5053;
 }
 
+/* Styling of Faq */ 
+
+* {
+	box-sizing: border-box;
+}
+
+::selection {
+	user-select: none;
+}
 
 
+.question {
+  color: #4C5053;
+	cursor: pointer;
+	font-size: 22px;
+  font-weight: 500;
+	padding: 15px 0;
+	transition: transform 0.2s;
+	position: relative;
+  border-color: #D9D9D6;
+  border-radius: 8px ;
+  
+}
 
+
+/* styles when the question is clicked */
+.question:active {
+	transform: translateY(10px);
+	box-shadow: none;
+}
+
+.answer {
+	transition: 0.25s; /* smooth slide-in */
+	height: 0; /* starts collapsed */
+	overflow: hidden;
+	line-height: 1.5;
+}
+
+
+/* style the toggleIcon */
+.toggleIcon {
+	font-size: 1.5em;
+	font-weight: bold;
+	position: absolute;
+	right: 20px;
+	display: inline-block;
+	line-height: 0.5;
+	color: #666;
+}

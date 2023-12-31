@@ -1,0 +1,220 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../dist/output.css" rel="stylesheet">
+    <link rel="stylesheet prefetch"
+        href="https://cdn.rawgit.com/mfd/e7842774e037edf15919037594a79b2b/raw/665bdfc532094318449f1010323c84013d5af953/graphik.css">
+
+    <section class="h-sreen w-screen mx-auto ">
+        <hr class="h-2 bg-red-700">
+        <nav class="px-28 mx-auto h-40">
+            <a href="#" class="">
+                <img class="pt-16" src="logo/logo-1200.png" alt="" width="177.21" height="28">
+            </a>
+        </nav>
+
+        <header class="w-full bg-gray-100 h-80">
+            <div class="px-28">
+                <p class="text-xl leading-4 font-medium text-gray-700 pt-8">metabook help center 
+                    <span class="meta-gray-400"> / Συχνές Ερωτήσεις</span></p>
+                <p class="text-4xl leading-7 font-medium text-gray-700 pt-11">Συχνές Ερωτήσεις</p>
+                <div class="pt-16 inline-block relative w-full">
+                    <a href="#">
+                        <span class="bg-transparent right-0 pt-5 leading-9 absolute w-11 z-10 outline-0">
+                            <img src="img/Vector (5).png" alt="">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </span>
+                    </a>
+                    <input
+                        class="border w-full h-16 rounded border-gray-500 text-gray-500 text-xl px-5 focus:outline-none"
+                        type="search" name="search" placeholder="Πώς μπορούμε να σε βοηθήσουμε;">
+                </div>
+            </div>
+
+        </header>
+
+        <main>
+            <div class="px-28 pt-20 pb-8 text-gray-400 text-3xl">
+                <p>Σχετικά με το metabook</p>
+            </div>
+            <div id="app" class="">
+                <faq-question v-for="(faqItem, index) in faqItems" :key="index" :faq="faqItem"> </faq-question>
+
+            </div>
+            <div class="px-28 pt-12 pb-8 text-gray-400 text-3xl">
+                <p>Τι κοστίζει;</p>
+            </div>
+            <div id="app2" class="">
+                <faq-question2 v-for="(faqItem, index) in faqItems2" :key="index" :faq2="faqItem"> </faq-question2>
+
+            </div>
+
+            <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+            <script>
+                const app = Vue.createApp({
+                    data() {
+                        return {
+                            faqItems: [{
+                                    q: "Τι είναι το metabook;",
+                                    a: "Η υπηρεσία metabook είναι το μεγαλύτερο online marketplace μεταχειρισμένου βιβλίου στην Ελλάδα." +
+                                        "Ο στόχος μας είναι να σε βοηθήσουμε να πουλάς τα βιβλία σου πολύ εύκολα online.."
+                                },
+                                {
+                                    q: "Γιατί να πουλήσω τα βιβλία μου μέσω metabook;",
+                                    a: "Το metabook σε υποστηρίζει σε όλα τα βήματα της πώλησης των βιβλίων σου. Ως πωλητής - μέλος του metabook, θα έχεις τη δυνατότητα:Να καταχωρίσεις τα βιβλία σου γρήγορα: με βάση το ISBN βρίσκουμε το εξώφυλλο και τα στοιχεία του βιβλίου. Να προβάλεις την αγγελία σου σε χιλιάδες αναγνώστες βιβλίων που επισκέπτονται τη σελίδα μας. Να δεις την τιμή πώλησης του βιβλίου που πουλάς στα βιβλιοπωλεία.Να γίνεις μέλος της μεγαλύτερης κοινότητας πωλητών μεταχειρισμένων βιβλίων στην Ελλάδα.Ο στόχος μας είναι να σε βοηθήσουμε να πουλάς τα βιβλία σου πολύ εύκολα online."
+                                },
+                                {
+                                    q: "Γιατί να αγοράσω ένα βιβλίο από το metabook;",
+                                    a: "Αγοράζοντας μεταχειρισμένα βιβλία από το metabook: Γίνεσαι κι εσύ συμμέτοχος στον σκοπό μας που είναι να δώσουμε στο κάθε βιβλίο τη δυνατότητα να διαβάζεται ξανά και ξανά. Έχεις όφελος αφού τα μεταχειρισμένα βιβλία είναι πιο οικονομικά. Βοηθάς άλλους"
+                                }
+                            ]
+                        };
+                    }
+                });
+
+                app.component("faq-question", {
+                    template: `
+                <div class="px-28 pb-8">
+                    <div class = "border rounded-md pl-5">
+                        <p class="question" ref="question" @click="toggleAnswer">
+                              {{ faq.q }}
+                                  <span class="toggleIcon">
+                                     {{ this.isOpen ? "—" : "＋" }}
+                                 </span>
+                        </p>
+                        <p class="answer" ref="answer">
+                              {{ faq.a }}
+                        </p>
+                   </div>
+                 </div>
+                `,
+                    props: ["faq"],
+                    data() {
+                        return {
+                            isOpen: false
+                        };
+                    },
+                    methods: {
+                        toggleAnswer() {
+                            // collapse if open, expand if not.
+                            if (this.isOpen) {
+                                this.collapse();
+                            } else {
+                                this.expand();
+                            }
+                            this.isOpen = !this.isOpen;
+                        },
+                        collapse() {
+                            // select the answer element
+                            const answer = this.$refs.answer;
+                            const question = this.$refs.question;
+                            answer.style.height = 0; // set its height to 0
+                            question.style.color = "grey";
+                        },
+                        expand() {
+                            // select answer element
+                            const answer = this.$refs.answer;
+                            const question = this.$refs.question;
+
+                            // set its height to its normal scroll height to expand it fully
+                            answer.style.height = answer.scrollHeight + "px";
+                            question.style.color = "red";
+                        }
+
+                        
+                    }
+                });
+
+                app.mount("#app");
+            </script>
+
+            <script>
+                const app2 = Vue.createApp({
+                    data() {
+                        return {
+                            faqItems2: [{
+                                    q2: "Πόσο κοστίζει η καταχώριση αγγελίας βιβλίων προς πώληση;",
+                                    a2: "Δεν κοστίζει κάτι για να γίνεις πωλητής στο metabook. Η εγγραφή και η καταχώριση των βιβλίων είναι δωρεάν. Επίσης, οι αγγελίες που ανεβάζεις δεν έχουν ημερομηνία λήξης."
+                                },
+                                {
+                                    q2: "Ποια είναι η χρέωση;",
+                                    a2: "Το metabook χρεώνει τον πωλητή για τις πωλήσεις που γίνονται μέσα από αυτό με το ποσοστό 10% + ΦΠΑ. Τα έξοδα αποστολής δεν προσμετρώνται στον υπολογισμό της χρέωσης.Ο αγοραστής δεν χρεώνεται από το metabook. Μπορείς να διαβάσεις περισσότερα στην πολιτική χρέωσης ."
+                                },
+                                {
+                                    q2: "Πότε χρεώνεται μία παραγγελία;",
+                                    a2: "Το metabook χρεώνει τον πωλητή για τις πωλήσεις που γίνονται μέσα από αυτό με το ποσοστό 10% + ΦΠΑ. Τα έξοδα αποστολής δεν προσμετρώνται στον υπολογισμό της χρέωσης. Ο αγοραστής δεν χρεώνεται από το metabook. Μπορείς να διαβάσεις περισσότερα στην πολιτική χρέωσης."
+                                }
+                            ]
+                        };
+                    }
+                });
+
+
+                app2.component("faq-question2", {
+                    template: `
+                <div class="px-28 pb-8">
+                    <div class = "border rounded-md pl-5">
+                        <p class="question" ref="question" @click="toggleAnswer">
+                              {{ faq2.q2 }}
+                                  <span class="toggleIcon">
+                                     {{ this.isOpen ? "—" : "＋" }}
+                                 </span>
+                        </p>
+                        <p class="answer" ref="answer">
+                              {{ faq2.a2 }}
+                        </p>
+                   </div>
+                 </div>
+    
+        `,
+                    props: ["faq2"],
+                    data() {
+                        return {
+                            isOpen: false
+                        };
+                    },
+                    methods: {
+                        toggleAnswer() {
+                            // collapse if open, expand if not.
+                            if (this.isOpen) {
+                                this.collapse();
+                            } else {
+                                this.expand();
+                            }
+                            this.isOpen = !this.isOpen;
+                        },
+                        collapse() {
+                            const answer = this.$refs.answer;
+                            const question = this.$refs.question;
+                            answer.style.height = 0; // set its height to 0
+                            question.style.color = "grey";
+                        },
+                        expand() {
+                            // select answer element
+                            const answer = this.$refs.answer;
+                            const question = this.$refs.question;
+
+                            // set its height to its normal scroll height to expand it fully
+                            answer.style.height = answer.scrollHeight + "px";
+                            question.style.color = "red";
+                        }
+                    }
+                });
+
+                app2.mount("#app2");
+            </script>
+        </main>
+
+
+
+
+    </section>
+
+</head>
+
+</html>
